@@ -9,10 +9,13 @@ import SwiftUI
 import RealityKit
 
 struct ContentView: View {
+@State private var isControlBarVisible = true
+@State private var showBrows = false
     var body: some View {
         ZStack(alignment: .bottom) {
             ARViewContainer()
-            ControlView()
+           
+            ControlView(isControlBarVisible: $isControlBarVisible, showBrows: $showBrows)
         }.edgesIgnoringSafeArea(.all)
     }
 }

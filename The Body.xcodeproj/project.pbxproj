@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E87ABCD1262AEC4600CBF27E /* BrowsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87ABCD0262AEC4600CBF27E /* BrowsView.swift */; };
 		E881022C262A1A0B00DE5941 /* The_BodyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E881022B262A1A0B00DE5941 /* The_BodyApp.swift */; };
 		E881022E262A1A0B00DE5941 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E881022D262A1A0B00DE5941 /* ContentView.swift */; };
 		E8810230262A1A0F00DE5941 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E881022F262A1A0F00DE5941 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E87ABCD0262AEC4600CBF27E /* BrowsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsView.swift; sourceTree = "<group>"; };
 		E8810228262A1A0B00DE5941 /* The Body.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "The Body.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E881022B262A1A0B00DE5941 /* The_BodyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = The_BodyApp.swift; sourceTree = "<group>"; };
 		E881022D262A1A0B00DE5941 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				E881022B262A1A0B00DE5941 /* The_BodyApp.swift */,
 				E881022D262A1A0B00DE5941 /* ContentView.swift */,
 				E8810248262A297B00DE5941 /* ControlView.swift */,
+				E87ABCD0262AEC4600CBF27E /* BrowsView.swift */,
 				E881023B262A230800DE5941 /* 3D Assets */,
 				E881022F262A1A0F00DE5941 /* Assets.xcassets */,
 				E8810234262A1A0F00DE5941 /* Info.plist */,
@@ -171,6 +174,7 @@
 			files = (
 				E881022E262A1A0B00DE5941 /* ContentView.swift in Sources */,
 				E8810249262A297B00DE5941 /* ControlView.swift in Sources */,
+				E87ABCD1262AEC4600CBF27E /* BrowsView.swift in Sources */,
 				E881022C262A1A0B00DE5941 /* The_BodyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,68 +7,111 @@
 
 import SwiftUI
 
-struct BottomView: View {
+// MARK: ControlView
+struct ControlView: View {
+    @Binding var isControlBarVisible: Bool
+    @Binding var showBrows: Bool
+    
     var body: some View {
         VStack {
-           SwitchButton()
+            ControlWindowView(isControlBarVisible: $isControlBarVisible)
+            
             Spacer()
-            ControlView()
+            
+            if isControlBarVisible {
+                ControlButtonView(showBrows: $showBrows)
+            }
         }
     }
 }
 
-struct SwitchButton: View {
-    var body: some View {
-        HStack {
-            ButtonView(sfSymbol: "clock.fill") {
-                print("Recents")
-            }
-            ButtonView(sfSymbol: "square.grid.2x2") {
-                print("Main Menu")
-            }
-            
-            ButtonView(sfSymbol: "slider.horizontale.3") {
-                print("Settings")
-            }
-        }
-    }
+// MARK: ControlWindowView
+struct ControlWindowView: View {
+    @Binding var isControlBarVisible: Bool
     
-}
-
-struct ControlView: View {
     var body: some View {
         HStack {
-            ButtonView(sfSymbol: "clock.fill") {
-                print("Recents")
+            Spacer()
+            
+            ZStack {
+                Color.black.opacity(0.25)
+                
+                Button(action: {
+                    print("You hav etapped on the window")
+                    self.isControlBarVisible.toggle()
+                }, label: {
+                    Image(systemName: self.isControlBarVisible ? "rectangle": "slider.horizontal.below.rectangle" )
+                        .font(.system(size: 25))
+                        .foregroundColor(.white)
+                        .buttonStyle(PlainButtonStyle())
+                
+                })
             }
-            ButtonView(sfSymbol: "square.grid.2x2") {
-                print("Main Menu")
+            .frame(width: 50, height: 50)
+            .cornerRadius(8.0)
+            
+            
+            
+        }
+        .padding(.top, 45)
+        .padding(.trailing, 20)
+    }
+}
+
+// MARK: ControlButtonView
+struct ControlButtonView: View {
+    @Binding var showBrows: Bool
+    
+    var body: some View {
+        HStack {
+            
+            // Recnts Button
+            ButtonView(buttonImage: "clock.fill") {
+                print("You have tapped on the recents button")
             }
             
-            ButtonView(sfSymbol: "slider.horizontale.3") {
-                print("Settings")
+            Spacer()
+            
+            // The sheet Button
+            ButtonView(buttonImage: "square.grid.2x2") {
+                print("You have tapped the sheet")
+                self.showBrows.toggle()
+            }.sheet(isPresented: $showBrows, content: {
+                BrowsView(showBrows: $showBrows)
+            })
+            
+            Spacer()
+            
+            // The Settings Button
+            ButtonView(buttonImage: "slider.horizontal.3") {
+                print("You have tapped the settings Button")
             }
+            
         }
         .frame(maxWidth: 500)
         .padding(30)
-        .foregroundColor(Color.black.opacity(0.25))
-      
+        .foregroundColor(Color.black.opacity(0.45))
+        
     }
 }
 
+// MARK: ButtonView
 struct ButtonView: View {
-    let sfSymbol: String
+    let buttonImage: String
     let action: () -> Void
     
     var body: some View {
         Button(action: {
             self.action()
         }, label: {
-            Image(systemName: sfSymbol)
+            Image(systemName: buttonImage)
                 .font(.system(size: 35))
                 .foregroundColor(Color.white)
                 .buttonStyle(PlainButtonStyle())
+                .frame(width: 50, height: 50)
         })
-      
+        
     }
 }
+
+
